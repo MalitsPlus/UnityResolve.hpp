@@ -1894,10 +1894,10 @@ public:
 
 		struct String : Object {
 			int32_t  m_stringLength{ 0 };
-			wchar_t m_firstChar[32]{};
+			char16_t m_firstChar[32]{};
 
 			[[nodiscard]] auto ToString() const -> std::string {
-				std::wstring_convert<std::codecvt_utf8<wchar_t>> converterX;
+				std::wstring_convert<std::codecvt_utf8<char16_t>, char16_t> converterX;
 				return converterX.to_bytes(m_firstChar);
 			}
 
